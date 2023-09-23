@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="output.css">
+</head>
+<body class="bg-gray-600 font-sans font-serif">
+    <div class="container w-[100%] h-[100vh] flex flex-wrap items-center justify-center">
+        <div class="w-[400px] px-[25px] pt-[30px] bg-white flex-col items-center text-center justify-center">
+            <h1 class="text-3xl font-semibold tracking-wide text-gray-700" id="quizTitle">
+                How Well Do You Know Kolkata's Rich History?
+            </h1>
+            <br />
+            <p class="italic" id="quizDescription">
+                Test your knowledge of the City of Joy's fascinating past with our insightful history quiz on Kolkata.
+            </p>
+            <button class="bg-yellow-400 text-blue-950 font-bold py-3 px-6 rounded-full text-xl mt-5 mb-4 shadow-md" id="startButton">
+                Start
+            </button>
+            <div id="feedback1" class="text-red-500 mb-2"></div>
+
+            <div id="quiz" class="hidden p-6">
+                <!-- Hidden initially -->
+                <h2 class="text-3xl font-semibold mb-4 text-blue-950 p-2 rounded-lg mt-[-30px]">Question 1:</h2>
+                <p class="text-xl mb-4 text-blue-950 p-2 rounded-lg">What is the name of the famous coffee house in Kolkata, which has been a hub for intellectuals and artists for decades?</p>
+                <div class="grid grid-cols-2 gap-4">
+                    <label class="p-4 border border-gray-300 rounded-md text-center cursor-pointer hover:bg-gray-200 transition duration-300">
+                        <input type="radio" name="answer1" value="Kolkata" class="hidden" />
+                        Mocambo
+                    </label>
+                    <label class="p-4 border border-gray-300 rounded-md text-center cursor-pointer hover:bg-gray-200 transition duration-300">
+                        <input type="radio" name="answer1" value="Mumbai" class="hidden" />
+                        Flurys
+                    </label>
+                    <label class="p-4 border border-gray-300 rounded-md text-center cursor-pointer hover:bg-gray-200 transition duration-300">
+                        <input type="radio" name="answer1" value="co" class="hidden" />
+                        Indian Coffee House
+                    </label>
+                    <label class="p-4 border border-gray-300 rounded-md text-center cursor-pointer hover:bg-gray-200 transition duration-300">
+                        <input type="radio" name="answer1" value="Other" class="hidden" />
+                        Cafe Coffee Day
+                    </label>
+                </div>
+                <div id="feedback1" class="mt-2 font-medium"></div>
+
+                <button id="nextButton1" class="mt-4 px-6 py-2 bg-yellow-500 text-blue-950 rounded hover:bg-yellow-600 transition duration-300 font-semibold">
+                    Next
+                </button>
+            </div>
+            
+            <!-- Additional questions -->
+            <div id="question2" class="hidden p-6">
+                <h2 class="text-3xl font-semibold mb-4 text-blue-950 p-2 rounded-lg mt-[-30px]">Question 2:</h2>
+                <p class="text-xl mb-4 text-blue-950 p-2 rounded-lg">Which famous poet was born in Kolkata in 1861?</p>
+                <div class="grid grid-cols-2 gap-4">
+                    <label class="p-4 border border-gray-300 rounded-md text-center cursor-pointer hover:bg-gray-200 transition duration-300">
+                        <input type="radio" name="answer2" value="Ganges" class="hidden" />
+                        Mirza Ghalib
+                    </label>
+                    <label class="p-4 border border-gray-300 rounded-md text-center cursor-pointer hover:bg-gray-200 transition duration-300">
+                        <input type="radio" name="answer2" value="co" class="hidden" />
+                        Rabindranath Tagore
+                    </label>
+                    <label class="p-4 border border-gray-300 rounded-md text-center cursor-pointer hover:bg-gray-200 transition duration-300">
+                        <input type="radio" name="answer2" value="Brahmaputra" class="hidden" />
+                        Kazi Nazrul Islam
+                    </label>
+                    <label class="p-4 border border-gray-300 rounded-md text-center cursor-pointer hover:bg-gray-200 transition duration-300">
+                        <input type="radio" name="answer2" value="Godavari" class="hidden" />
+                        Sarat Chandra Chattopadhyay
+                    </label>
+                </div>
+                <button id="nextButton2" class="mt-4 px-6 py-2 bg-yellow-500 text-blue-950 rounded hover:bg-yellow-600 transition duration-300 font-semibold">
+                    Next
+                </button>
+            </div>
+            
+            <div id="question3" class="hidden p-6">
+                <h2 class="text-3xl font-semibold mb-4 text-blue-950 p-2 rounded-lg mt-[-30px]">Question 3:</h2>
+                <p class="text-xl mb-4 text-blue-950 p-2 rounded-lg">Who was the founder of the Asiatic Society in Kolkata?</p>
+                <div class="grid grid-cols-2 gap-4">
+                    <label class="p-4 border border-gray-300 rounded-md text-center cursor-pointer hover:bg-gray-200 transition duration-300">
+                        <input type="radio" name="answer2" value="Ganges" class="hidden" />
+                        Raja Ram Mohan Roy
+                    </label>
+                    <label class="p-4 border border-gray-300 rounded-md text-center cursor-pointer hover:bg-gray-200 transition duration-300">
+                        <input type="radio" name="answer2" value="Yamuna" class="hidden" />
+                        Ishwar Chandra Vidyasagar
+                    </label>
+                    <label class="p-4 border border-gray-300 rounded-md text-center cursor-pointer hover:bg-gray-200 transition duration-300">
+                        <input type="radio" name="answer2" value="co" class="hidden" />
+                        William Jones
+                    </label>
+                    <label class="p-4 border border-gray-300 rounded-md text-center cursor-pointer hover:bg-gray-200 transition duration-300">
+                        <input type="radio" name="answer2" value="Godavari" class="hidden" />
+                        Henry Louis Vivian Derozio
+                    </label>
+                    
+                </div>
+                <button id="nextButton3" class="mt-4 px-6 py-2 bg-yellow-500 text-blue-950 rounded hover:bg-yellow-600 transition duration-300 font-semibold">
+                    Next
+                </button>
+            </div>
+            
+            <div id="question4" class="hidden p-6">
+                <h2 class="text-3xl font-semibold mb-4 text-blue-950 p-2 rounded-lg mt-[-30px]">Question 4:</h2>
+                <p class="text-xl mb-4 text-blue-950 p-2 rounded-lg">Which colonial building houses the National Library of India in Kolkata?</p>
+                <div class="grid grid-cols-2 gap-4">
+                    <label class="p-4 border border-gray-300 rounded-md text-center cursor-pointer hover:bg-gray-200 transition duration-300">
+                        <input type="radio" name="answer2" value="Ganges" class="hidden" />
+                        Metcalfe Hall
+                    </label>
+                    <label class="p-4 border border-gray-300 rounded-md text-center cursor-pointer hover:bg-gray-200 transition duration-300">
+                        <input type="radio" name="answer2" value="Yamuna" class="hidden" />
+                        Currency Building
+                    </label>
+                    <label class="p-4 border border-gray-300 rounded-md text-center cursor-pointer hover:bg-gray-200 transition duration-300">
+                        <input type="radio" name="answer2" value="co" class="hidden" />
+                        Belvedere House
+                    </label>
+                    <label class="p-4 border border-gray-300 rounded-md text-center cursor-pointer hover:bg-gray-200 transition duration-300">
+                        <input type="radio" name="answer2" value="Godavari" class="hidden" />
+                        Raj Bhavan
+                    </label>
+                </div>
+                <button id="nextButton4" class="mt-4 px-6 py-2 bg-yellow-500 text-blue-950 rounded hover:bg-yellow-600 transition duration-300 font-semibold">
+                    Next
+                </button>
+            </div>
+            <div id="question5" class="hidden p-6">
+                <h2 class="text-3xl font-semibold mb-4 text-blue-950 p-2 rounded-lg mt-[-30px]">Question 5:</h2>
+                <p class="text-xl mb-4 text-blue-950 p-2 rounded-lg">Which of the following is the oldest university in Kolkata?
+
+                </p>
+                <div class="grid grid-cols-2 gap-4">
+                    <label class="p-4 border border-gray-300 rounded-md text-center cursor-pointer hover:bg-gray-200 transition duration-300">
+                        <input type="radio" name="answer2" value="co" class="hidden" />
+                        University of Calcutta
+                   </label>
+                    <label class="p-4 border border-gray-300 rounded-md text-center cursor-pointer hover:bg-gray-200 transition duration-300">
+                        <input type="radio" name="answer2" value="Yamuna" class="hidden" />
+                        Presidency University
+                    </label>
+                    <label class="p-4 border border-gray-300 rounded-md text-center cursor-pointer hover:bg-gray-200 transition duration-300">
+                        <input type="radio" name="answer2" value="xyz" class="hidden" />
+                        Jadavpur University
+                    </label>
+                    <label class="p-4 border border-gray-300 rounded-md text-center cursor-pointer hover:bg-gray-200 transition duration-300">
+                        <input type="radio" name="answer2" value="Godavari" class="hidden" />
+                        University of Kalyani                    </label>
+                </div>
+                <button id="nextButton5" class="mt-4 px-6 py-2 bg-yellow-500 text-blue-950 rounded hover:bg-yellow-600 transition duration-300 font-semibold">
+                    Finish
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript code to handle the quiz functionality
+        const startButton = document.getElementById("startButton");
+        const quiz = document.getElementById("quiz");
+        
+        const nextButton1 = document.getElementById("nextButton1");
+        const question2 = document.getElementById("question2");
+        const nextButton2 = document.getElementById("nextButton2");
+        const question3 = document.getElementById("question3");
+        const nextButton3 = document.getElementById("nextButton3");
+        const question4 = document.getElementById("question4");
+        const nextButton4 = document.getElementById("nextButton4");
+        const question5 = document.getElementById("question5");
+        const nextButton5 = document.getElementById("nextButton5");
+
+
+        startButton.addEventListener("click", () => {
+            startButton.style.display = "none"; // Hide Start button
+            quiz.style.display = "block"; // Show the quiz
+            quizTitle.style.display = "none"; // Hide quiz title
+            quizDescription.style.display = "none"; // Hide quiz description
+        });
+
+        nextButton1.addEventListener("click", () => {
+            question2.style.display = "block";
+            quiz.style.display = "none";
+        });
+
+        nextButton2.addEventListener("click", () => {
+            question3.style.display = "block";
+            question2.style.display = "none";
+        });
+
+        nextButton3.addEventListener("click", () => {
+            question4.style.display = "block";
+            question3.style.display = "none";
+        });
+
+        nextButton4.addEventListener("click", () => {
+            question5.style.display = "block";
+            question4.style.display = "none";
+        });
+
+        nextButton5.addEventListener("click", () => {
+            // You can display a completion message or perform any final actions here
+            alert("Quiz completed!");
+        });
+
+        document.querySelectorAll('input[name="answer1"]').forEach((option) => {
+    option.addEventListener('click', () => {
+        const feedback1 = document.getElementById('feedback1');
+        if (option.value === 'co') {
+            feedback1.innerHTML = 'Correct!';
+            feedback1.classList.remove('text-red-500');
+            feedback1.classList.add('text-green-500');
+            score++;
+        } else {
+            feedback1.innerHTML = 'Incorrect!';
+            feedback1.classList.remove('text-green-500');
+            feedback1.classList.add('text-red-500');
+        }
+    });
+});
+
+document.querySelectorAll('input[name="answer2"]').forEach((option) => {
+    option.addEventListener('click', () => {
+        const feedback1 = document.getElementById('feedback1');
+        if (option.value === 'co') {
+            feedback1.innerHTML = 'Correct!';
+            feedback1.classList.remove('text-red-500');
+            feedback1.classList.add('text-green-500');
+            score++;
+        } else {
+            feedback1.innerHTML = 'Incorrect!';
+            feedback1.classList.remove('text-green-500');
+            feedback1.classList.add('text-red-500');
+        }
+    });
+});
+
+document.querySelectorAll('input[name="answer3"]').forEach((option) => {
+    option.addEventListener('click', () => {
+        const feedback1 = document.getElementById('feedback1');
+        if (option.value === 'co') {
+            feedback1.innerHTML = 'Correct!';
+            feedback1.classList.remove('text-red-500');
+            feedback1.classList.add('text-green-500');
+            score++;
+        } else {
+            feedback1.innerHTML = 'Incorrect!';
+            feedback1.classList.remove('text-green-500');
+            feedback1.classList.add('text-red-500');
+        }
+    });
+});
+
+document.querySelectorAll('input[name="answer4"]').forEach((option) => {
+    option.addEventListener('click', () => {
+        const feedback1 = document.getElementById('feedback1');
+        if (option.value === 'co') {
+            feedback1.innerHTML = 'Correct!';
+            feedback1.classList.remove('text-red-500');
+            feedback1.classList.add('text-green-500');
+            score++;
+        } else {
+            feedback1.innerHTML = 'Incorrect!';
+            feedback1.classList.remove('text-green-500');
+            feedback1.classList.add('text-red-500');
+        }
+    });
+});
+ 
+document.querySelectorAll('input[name="answer5"]').forEach((option) => {
+    option.addEventListener('click', () => {
+        const feedback1 = document.getElementById('feedback1');
+        if (option.value === 'co') {
+            feedback1.innerHTML = 'Correct!';
+            feedback1.classList.remove('text-red-500');
+            feedback1.classList.add('text-green-500');
+            score++;
+        } else {
+            feedback1.innerHTML = 'Incorrect!';
+            feedback1.classList.remove('text-green-500');
+            feedback1.classList.add('text-red-500');
+        }
+    });
+});
+    </script>
+</body>
+</html>
