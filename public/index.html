@@ -162,7 +162,9 @@
         // JavaScript code to handle the quiz functionality
         const startButton = document.getElementById("startButton");
         const quiz = document.getElementById("quiz");
-        
+        const quizTitle = document.getElementById("quizTitle");
+        const quizDescription = document.getElementById("quizDescription");
+    
         const nextButton1 = document.getElementById("nextButton1");
         const question2 = document.getElementById("question2");
         const nextButton2 = document.getElementById("nextButton2");
@@ -172,8 +174,11 @@
         const nextButton4 = document.getElementById("nextButton4");
         const question5 = document.getElementById("question5");
         const nextButton5 = document.getElementById("nextButton5");
-
-
+    
+        // Define variables to track score and user choices
+        let score = 0;
+        const userChoices = {};
+    
         startButton.addEventListener("click", () => {
             startButton.style.display = "none"; // Hide Start button
             quiz.style.display = "block"; // Show the quiz
@@ -181,110 +186,95 @@
             quizDescription.style.display = "none"; // Hide quiz description
         });
 
+        function showQuestion(currentQuestion, nextQuestion){
+            currentQuestion.style.display= "none";
+            nextQuestion.style.display="block"
+        }
+
+        
         nextButton1.addEventListener("click", () => {
             question2.style.display = "block";
             quiz.style.display = "none";
         });
-
+    
         nextButton2.addEventListener("click", () => {
             question3.style.display = "block";
             question2.style.display = "none";
         });
-
+    
         nextButton3.addEventListener("click", () => {
             question4.style.display = "block";
             question3.style.display = "none";
         });
-
+    
         nextButton4.addEventListener("click", () => {
             question5.style.display = "block";
             question4.style.display = "none";
         });
-
+    
         nextButton5.addEventListener("click", () => {
             // You can display a completion message or perform any final actions here
-            alert("Quiz completed!");
+            alert(`Quiz completed! Your score is ${score}/5`);
+            console.log("User choices:", userChoices);
         });
+    
+        function updateFeedback(questionNumber, optionValue) {
+            const feedback = document.getElementById(`feedback${questionNumber}`);
+            const correctAnswer = 'co'; // Replace with the correct answer for each question
+    
+            if (optionValue === correctAnswer) {
+                feedback.innerHTML = 'Correct!';
+                feedback.classList.remove('text-red-500');
+                feedback.classList.add('text-green-500');
+                score++;
+            } else {
+                feedback.innerHTML = 'Incorrect!';
+                feedback.classList.remove('text-green-500');
+                feedback.classList.add('text-red-500');
+            }
+    
+            // Store the user's choice
+            userChoices[`question${questionNumber}`] = optionValue;
+            const radioButtons= document.querySelectorAll('input[name="answer${questionsNumber}"]');
+            radioButtons.forEach((button) => {
+                button.disabled = true;
+            });
 
-        document.querySelectorAll('input[name="answer1"]').forEach((option) => {
-    option.addEventListener('click', () => {
-        const feedback1 = document.getElementById('feedback1');
-        if (option.value === 'co') {
-            feedback1.innerHTML = 'Correct!';
-            feedback1.classList.remove('text-red-500');
-            feedback1.classList.add('text-green-500');
-            score++;
-        } else {
-            feedback1.innerHTML = 'Incorrect!';
-            feedback1.classList.remove('text-green-500');
-            feedback1.classList.add('text-red-500');
         }
-    });
-});
+    
+        // Add event listeners for option selection in each question
+        for (let i = 0; i <= nextButtons.length; i++) {
+            document.querySelectorAll(`input[name="answer${i}"]`).forEach((option) => {
+                option.addEventListener('click', () => {
+                    updateFeedback(i, option.value);
+                });
+            });
+        }
+        // Add event listeners for "Next" buttons
+        for (let i = 0; i < nextButtons.length; i++) {
+            if (i < nextButtons.length - 1) {
+                nextButtons[i].addEventListener("click", () => {
+                    showQuestion(questions[i], questions[i + 1]);
+                });
+            } else {
+                nextButtons[i].addEventListener("click", () => {
+                    // Calculate and display total score
+                    alert(`Quiz completed! Your score is ${score}/5`);
+                    console.log("User choices:", userChoices);
+                });
+            }
+        }
 
-document.querySelectorAll('input[name="answer2"]').forEach((option) => {
-    option.addEventListener('click', () => {
-        const feedback1 = document.getElementById('feedback1');
-        if (option.value === 'co') {
-            feedback1.innerHTML = 'Correct!';
-            feedback1.classList.remove('text-red-500');
-            feedback1.classList.add('text-green-500');
-            score++;
-        } else {
-            feedback1.innerHTML = 'Incorrect!';
-            feedback1.classList.remove('text-green-500');
-            feedback1.classList.add('text-red-500');
+        // Add event listeners for option selection in each question
+        for (let i = 1; i <= 5; i++) {
+            document.querySelectorAll(`input[name="answer${i}"]`).forEach((option) => {
+                option.addEventListener('click', () => {
+                    updateFeedback(i, option.value);
+                });
+            });
         }
-    });
-});
 
-document.querySelectorAll('input[name="answer3"]').forEach((option) => {
-    option.addEventListener('click', () => {
-        const feedback1 = document.getElementById('feedback1');
-        if (option.value === 'co') {
-            feedback1.innerHTML = 'Correct!';
-            feedback1.classList.remove('text-red-500');
-            feedback1.classList.add('text-green-500');
-            score++;
-        } else {
-            feedback1.innerHTML = 'Incorrect!';
-            feedback1.classList.remove('text-green-500');
-            feedback1.classList.add('text-red-500');
-        }
-    });
-});
-
-document.querySelectorAll('input[name="answer4"]').forEach((option) => {
-    option.addEventListener('click', () => {
-        const feedback1 = document.getElementById('feedback1');
-        if (option.value === 'co') {
-            feedback1.innerHTML = 'Correct!';
-            feedback1.classList.remove('text-red-500');
-            feedback1.classList.add('text-green-500');
-            score++;
-        } else {
-            feedback1.innerHTML = 'Incorrect!';
-            feedback1.classList.remove('text-green-500');
-            feedback1.classList.add('text-red-500');
-        }
-    });
-});
- 
-document.querySelectorAll('input[name="answer5"]').forEach((option) => {
-    option.addEventListener('click', () => {
-        const feedback1 = document.getElementById('feedback1');
-        if (option.value === 'co') {
-            feedback1.innerHTML = 'Correct!';
-            feedback1.classList.remove('text-red-500');
-            feedback1.classList.add('text-green-500');
-            score++;
-        } else {
-            feedback1.innerHTML = 'Incorrect!';
-            feedback1.classList.remove('text-green-500');
-            feedback1.classList.add('text-red-500');
-        }
-    });
-});
     </script>
+    
 </body>
 </html>
